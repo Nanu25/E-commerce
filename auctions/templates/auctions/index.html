@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+    <ul class="listing-container">
+        {% for listing in listings %}
+            <li class="listing-item">
+                {% if listing.is_active %}
+                    <a href="{% url 'listing' listing.id %}" class="listing-content">
+                        <h3>{{ listing.title }}</h3>
+                        <p>{{ listing.description }}</p>
+                        <p>Starting Bid: ${{ listing.starting_bid }}</p>
+
+                        {% if listing.image_url %}
+                            <img src="{{ listing.image_url }}" style="max-width: 300px; height: auto;">
+                        {% endif %}
+
+                        {% if listing.category %}
+                            <p>Category: {{ listing.category }}</p>
+                        {% endif %}
+                    </a>
+                {% else %}
+                    <div class="listing-content">
+                        <h3>{{ listing.title }}</h3>
+                        <p>{{ listing.description }}</p>
+                        <p>Starting Bid: ${{ listing.starting_bid }}</p>
+
+                        {% if listing.image_url %}
+                            <img src="{{ listing.image_url }}" style="max-width: 300px; height: auto;">
+                        {% endif %}
+
+                        {% if listing.category %}
+                            <p>Category: {{ listing.category }}</p>
+                        {% endif %}
+                        <p><strong>This auction is closed.</strong></p>
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
