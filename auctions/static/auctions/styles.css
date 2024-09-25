@@ -189,3 +189,13 @@ footer {
 .comment-item strong {
     color: #000; /* Keep the username in black */
 }
+
+.footer-link {
+    color: mintcream; /* Set your desired color here (for example, a bright orange) */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer-link:hover {
+    color: #c70039; /* A darker color on hover (optional) */
+}
